@@ -1,5 +1,5 @@
 deployments:
-  default:
+  MyApp:
     vm_size: 1
     environment:
       TEST_VAL=42
