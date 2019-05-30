@@ -1,11 +1,5 @@
 deployments:
-  default:
-    vm_size: 1G
-    ready_wait: 120
-    copy_files: /abcd ~/code
-    auto_deploy_on_commits: true
-    squash_pr_comments: true    
-  branch:
+  AcmeApp:
     vm_size: 1
     vm_storage_gb: 10
     auto_deploy_disable_cache: true
@@ -14,43 +8,4 @@ deployments:
     filename: ./stuff/Dockerfile
     dockerfileonly: true
     context_path: ./stuff
-  branchA:
-    vm_size: 6
-    environment:
-      TEST_VAL=4242
-    ready_wait:
-      120
-    filename:
-      ./stuff/DockerfileA
-    dockerfileonly: true
-    run_options: --env TEST_VAL2=43
-    context_path: ./stuff
-    post_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
-  branchB:
-    vm_size: 8GB
-    environment:
-      TEST_VAL=424242
-    ready_wait:
-      120
-    filename:
-      ./stuff/DockerfileB
-    dockerfileonly: true
-    run_options: --env TEST_VAL2=${SQUASH_DOMAIN}
-    context_path: ./stuff
-    post_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
+  
