@@ -20,7 +20,7 @@ deployments:
       - target: 'stuff-service'
         command: exec
         docker: true
-        options: -it {target} bash -c 'echo domain is $SQUASH_DOMAIN'
+        options: -it {target} bash -c 'echo domain is $SQUASH_DOMAIN && sleep 400'
       - target: 'stuff-service'
         command: exec
         docker: true
